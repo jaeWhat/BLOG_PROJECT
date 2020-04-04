@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+  
+<tiles-definitions>
+	<!-- 메뉴 탭 타일즈 -->
+	<definition name="layouts-tiles" template="/WEB-INF/tiles/tiles-layouts.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/tiles-header.jsp"/>
+		<put-attribute name="nav" value="/WEB-INF/tiles/tiles-nav.jsp"/>
+		<put-attribute name="left" value="/WEB-INF/tiles/tiles-left.jsp"/>
+		<put-attribute name="content" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/tiles-footer.jsp"/>
+	</definition>
+	
+	<definition name="*" extends="layouts-tiles">
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"></put-attribute>
+	</definition>
+	<definition name="*/*" extends="layouts-tiles">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition>
+	<definition name="*/*/*" extends="layouts-tiles">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="*.do" extends="layouts-tiles">
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"></put-attribute>
+	</definition>
+	<definition name="*/*.do" extends="layouts-tiles">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition>
+	<definition name="*/*/*.do" extends="layouts-tiles">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
+	</definition>
+	<definition name="*/*/*/*.do" extends="layouts-tiles">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}/{4}.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>
